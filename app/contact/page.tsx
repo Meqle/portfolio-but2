@@ -6,10 +6,35 @@ export default function Contact() {
   const [formState, setFormState] = useState({ name: '', email: '', message: '' });
   const [submitted, setSubmitted] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
-    setFormState({ name: '', email: '', message: '' });
+    
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          access_key: "d6f70cfb-73bf-4c05-8b71-919a846daf33",
+          name: formState.name,
+          email: formState.email,
+          message: formState.message,
+        }),
+      });
+
+      const result = await response.json();
+      
+      if (result.success) {
+        setSubmitted(true);
+        setFormState({ name: '', email: '', message: '' });
+      } else {
+        alert("Une erreur est survenue lors de l'envoi.");
+      }
+    } catch (error) {
+      console.error("Erreur lors de la soumission du formulaire :", error);
+    }
   };
 
   return (
