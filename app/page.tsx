@@ -16,7 +16,7 @@ export default function Home() {
           {/* Conteneur de la photo */}
           <div className="relative w-full h-full rounded-full overflow-hidden border-4 border-slate-800 bg-slate-950 shadow-xl">
             <Image 
-              src="/img/come-photo.jpg" // <-- Ta photo devra être déposée ici
+              src="come-photo.jpg"
               alt="Photo de Côme"
               layout="fill"
               objectFit="cover"
