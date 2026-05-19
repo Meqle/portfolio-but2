@@ -1,15 +1,34 @@
 import Link from 'next/link'
+import Image from 'next/image' // Importation nécessaire pour gérer la photo correctement
 
 export default function Home() {
   return (
     <main className="min-h-[calc(100vh-4rem)] bg-slate-900 text-white flex flex-col items-center justify-center px-4 text-center">
       
       {/* Conteneur Principal */}
-      <div className="max-w-3xl mx-auto space-y-8 my-auto animate-fade-in">
+      <div className="max-w-3xl mx-auto space-y-8 my-auto animate-fade-in flex flex-col items-center">
         
+        {/* Emplacement pour ta Photo de Profil en Rond */}
+        <div className="relative w-32 h-32 md:w-36 md:h-36 mb-2">
+          {/* Léger halo lumineux cyan derrière le rond */}
+          <div className="absolute -inset-1 bg-cyan-500 rounded-full blur opacity-25 animate-pulse"></div>
+          
+          {/* Conteneur de la photo */}
+          <div className="relative w-full h-full rounded-full overflow-hidden border-4 border-slate-800 bg-slate-950 shadow-xl">
+            <Image 
+              src="/img/come-photo.jpg" // <-- Ta photo devra être déposée ici
+              alt="Photo de Côme"
+              layout="fill"
+              objectFit="cover"
+              priority // Permet un chargement instantané dès l'arrivée sur le site
+              className="transition-transform duration-300 hover:scale-105"
+            />
+          </div>
+        </div>
+
         {/* En-tête de présentation */}
-        <div className="space-y-3">
-          <span className="text-cyan-400 font-semibold tracking-wider text-sm uppercase bg-cyan-950/50 px-4 py-1.5 rounded-full border border-cyan-800/30">
+        <div className="space-y-3 w-full">
+          <span className="inline-block text-cyan-400 font-semibold tracking-wider text-sm uppercase bg-cyan-950/50 px-4 py-1.5 rounded-full border border-cyan-800/30">
             Portfolio Universitaire
           </span>
           <h1 className="text-5xl md:text-6xl font-extrabold tracking-tight bg-gradient-to-r from-white via-slate-200 to-slate-400 bg-clip-text text-transparent pt-2">
@@ -26,7 +45,7 @@ export default function Home() {
           Passionné par la conception d'applications robustes, la rigueur du <em>clean code</em> et le développement d'interfaces modernes et soignées.
         </p>
 
-        {/* Boutons d'action (Remplissent le vide et engagent le visiteur) */}
+        {/* Boutons d'action */}
         <div className="flex flex-wrap items-center justify-center gap-4 pt-4">
           <Link 
             href="/projets" 
@@ -42,8 +61,8 @@ export default function Home() {
           </Link>
         </div>
 
-        {/* Aperçu des compétences clés (Apporte du relief technique en bas de page) */}
-        <div className="pt-12 border-t border-slate-800/60 max-w-xl mx-auto">
+        {/* Aperçu des compétences clés */}
+        <div className="pt-12 border-t border-slate-800/60 max-w-xl w-full mx-auto">
           <p className="text-xs font-semibold tracking-widest text-slate-500 uppercase mb-4">
             Technologies de prédilection
           </p>

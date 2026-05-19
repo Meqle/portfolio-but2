@@ -114,7 +114,7 @@ export default function Projets() {
             <div className="bg-slate-950 p-6 rounded-2xl border border-slate-800 space-y-4 shadow-xl">
               <div className="flex items-center gap-3">
                 <div className="h-2 w-2 rounded-full bg-slate-400"></div>
-                <h4 className="text-sm font-semibold text-slate-200">Preuve Technique 4 : Base de Données Relationnelle Relationnelle (phpMyAdmin)</h4>
+                <h4 className="text-sm font-semibold text-slate-200">Preuve Technique 4 : Base de Données Relationnelle (phpMyAdmin)</h4>
               </div>
               
               <div className="overflow-hidden rounded-lg border border-slate-800 bg-slate-900 group max-h-[300px] flex items-center justify-center p-2">
