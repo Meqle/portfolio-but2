@@ -1,6 +1,6 @@
 import './globals.css'
-import Link from 'next/link'
 import React from 'react'
+import Navbar from './components/Navbar'
 
 export const metadata = {
   title: 'Portfolio - Côme',
@@ -16,22 +16,8 @@ export default function RootLayout({
     <html lang="fr">
       <body className="bg-slate-900 antialiased flex flex-col min-h-screen">
         
-        {/* Barre de navigation globale (Header) */}
-        <nav className="w-full bg-slate-950/80 backdrop-blur border-b border-slate-800 fixed top-0 z-50 text-white">
-          <div className="max-w-5xl mx-auto px-4 h-16 flex items-center justify-between">
-            <Link href="/" className="font-bold text-lg text-cyan-400 tracking-wide hover:text-cyan-300 transition">
-              Côme <span className="text-white font-light">| Portfolio</span>
-            </Link>
-            
-            <div className="flex space-x-6 text-sm font-medium text-slate-300">
-              <Link href="/about" className="hover:text-cyan-400 transition">À propos</Link>
-              <Link href="/competences" className="hover:text-cyan-400 transition">Compétences</Link>
-              <Link href="/projets" className="hover:text-cyan-400 transition">Projets</Link>
-              <Link href="/reflexion" className="hover:text-cyan-400 transition">Réflexion</Link>
-              <Link href="/contact" className="hover:text-cyan-400 transition">Contact</Link>
-            </div>
-          </div>
-        </nav>
+        {/* Notre nouvelle barre de navigation responsive */}
+        <Navbar />
         
         {/* Contenu dynamique des pages */}
         <div className="pt-16 flex-grow flex flex-col">
@@ -46,7 +32,6 @@ export default function RootLayout({
               <p className="text-xs text-slate-500 mt-0.5">Parcours Réalisation d'Applications (RACA)</p>
             </div>
             
-            {/* Infos de contact et liens réseaux */}
             <div className="flex flex-wrap justify-center md:justify-end gap-x-4 gap-y-2 text-xs text-slate-400 items-center">
               <div className="flex items-center gap-1.5 font-medium text-slate-500">
                 <span>📍</span> Amiens
@@ -60,7 +45,6 @@ export default function RootLayout({
               
               <span className="text-slate-800">|</span>
               
-              {/* Lien GitHub */}
               <a 
                 href="https://github.com/Meqle" 
                 target="_blank" 
@@ -75,7 +59,6 @@ export default function RootLayout({
 
               <span className="text-slate-800">|</span>
 
-              {/* Lien LinkedIn */}
               <a 
                 href="https://www.linkedin.com/in/c%C3%B4me-vermeulen-4b601a38b/" 
                 target="_blank" 
@@ -90,7 +73,7 @@ export default function RootLayout({
               
               <span className="text-slate-800">|</span>
               
-              <p>© {new Date().getFullYear()} — Tous droits réservés</p>
+              <p>© 2026 — Tous droits réservés</p>
             </div>
           </div>
         </footer>
